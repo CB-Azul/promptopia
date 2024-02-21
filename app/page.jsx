@@ -13,9 +13,9 @@ const Home = () => {
         create and share creative prompts.
       </p>
 
-      {/* <Feed /> */}
+      <Feed />
     </section>
   )
-}
+};
 
-export default Home
+export default Home;
