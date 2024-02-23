@@ -51,4 +51,4 @@ const CreatePrompt = () => {
   );
 };
 
-export default CreatePrompt
+export default CreatePrompt;
