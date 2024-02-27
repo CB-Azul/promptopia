@@ -12,24 +12,22 @@ const Nav = () => {
     const [toggleDropdown, settoggleDropdown] = useState(false);
 
     useEffect(() => {
-        const setUpProviders = async () => {
+        (async () => {
             const response = await getProviders();
 
             setProviders(response);
-        }
-
-        setUpProviders();
-    })
+        })();
+    }, []);
 
   return (
     <nav className='flex-between w-full mb-16 pt-3'>
         <Link href="/" className='flex gap-2 flex-center'>
             <Image
-            src="/assets/images/logo.svg"
-            alt="Proptopia Logo"
-            width={30}
-            height={30}
-            className='object-contain'
+                src="/assets/images/logo.svg"
+                alt="Proptopia Logo"
+                width={30}
+                height={30}
+                className='object-contain'
             />
             <p className='logo-text'>Promptopia</p>
         </Link>
@@ -64,10 +62,11 @@ const Nav = () => {
                         <button
                             type='button'
                             key={provider.name}
-                            onClick={() => signIn(provider.id)}
+                            onClick={() => {signIn(provider.id);
+                            }}
                             className='black_btn'
-                            >
-                                Sign In
+                        >
+                            Sign In
                         </button>
                     ))}
                 </>
@@ -85,7 +84,7 @@ const Nav = () => {
                         height={37}
                         className='rounded-full'
                         alt='Profile'
-                        onClick={() => settoggleDropdown((prev) => !prev)}
+                        onClick={() => settoggleDropdown(!toggleDropdown)}
                     />
 
                     {toggleDropdown && (
@@ -123,18 +122,18 @@ const Nav = () => {
                         <button
                             type='button'
                             key={provider.name}
-                            onClick={() => signIn(provider.id)}
+                            onClick={() => {signIn(provider.id);
+                            }}
                             className='black_btn'
                             >
-                                Sign In
+                            Sign In
                         </button>
                     ))}
                 </>
             )}
         </div>
-
     </nav>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;

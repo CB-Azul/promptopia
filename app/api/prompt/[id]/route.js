@@ -1,6 +1,5 @@
 import { connectToDB } from "@utils/database";
 import Prompt from "@models/prompt";
-import { request } from "http";
 
 // GET (read)
 export const GET = async (request, { params }) => {
@@ -32,10 +31,10 @@ export const PATCH = async (request, { params }) => {
 
        await existingPrompt.save();
 
-       return new Response(JSON.stringify(existingPrompt), { status: 200 });
+       return new Response("Successfully updated the Prompts", { status: 200 });
     } catch (error) {
-        return new Response( "Failed to update the prompt", { status: 500 })
-    };
+        return new Response("Error updating prompt", { status: 500 });
+    }
 };
 
 // delete (delete)
@@ -47,6 +46,6 @@ export const DELETE = async (request, { params }) => {
 
         return new Response("Prompt deleted successfully", { status: 200 });
     } catch (error) {
-        return new Response("Failed to delete prompt", { status: 500 })
+        return new Response("Error deleting prompt", { status: 500 })
     };
 };

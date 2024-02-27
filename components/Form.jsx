@@ -30,18 +30,20 @@ const Form = ({ type, post, setPost, submitting, handleSubmit, }) => {
         </label>
         <label>
           <span className='font-satoshi font-semibold text-base text-gray-700'>
-            Tag {" "}
-            <span className='font-normal'>(#product, #webdevelopment, #idea)</span>
+            Field of Prompt{" "}
+            <span className='font-normal'>(#product, #webdevelopment, #idea, etc.)</span>
           </span>
 
           <input 
             value={post.tag}
             onChange={(e) => setPost({ ...post, tag: e.target.value })}
-            placeholder='#tag'
+            type='text'
+            placeholder='#Tag'
             required
             className='form_input'
           />
         </label>
+
         <div className='flex-end mx-3 mb-5 gap-4'>
           <Link href="/" className='text-gray-500 text-sm'>
             Cancel
@@ -58,7 +60,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit, }) => {
         </div>
       </form>
     </section>   
-  )
-}
+  );
+};
 
-export default Form
+export default Form;
